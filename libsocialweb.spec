@@ -5,12 +5,12 @@
 #
 Summary:	A social network data aggregator
 Name:		libsocialweb
-Version:	0.25.11
+Version:	0.25.12
 Release:	1
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.bz2
-# Source0-md5:	88476c29640649e70b2740f9e584d85f
+# Source0-md5:	7d5bd6c3b3ba13c1c620b6954ef26083
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.63
@@ -18,6 +18,7 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gobject-introspection-devel >= 0.10.0
 BuildRequires:	gtk-doc >= 1.15
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	json-glib-devel
@@ -120,6 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libsocialweb-keystore.so.0
 %attr(755,root,root) %{_libdir}/libsocialweb.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libsocialweb.so.0
+%{_libdir}/girepository-1.0/SocialWebClient-0.25.typelib
 %{_datadir}/dbus-1/services/libsocialweb.service
 
 %files devel
@@ -128,6 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libsocialweb-keyfob.so
 %attr(755,root,root) %{_libdir}/libsocialweb-keystore.so
 %attr(755,root,root) %{_libdir}/libsocialweb.so
+%{_datadir}/gir-1.0/SocialWebClient-0.25.gir
 %{_includedir}/libsocialweb
 %{_pkgconfigdir}/libsocialweb-client.pc
 %{_pkgconfigdir}/libsocialweb-keyfob.pc
