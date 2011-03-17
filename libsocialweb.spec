@@ -100,8 +100,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/libsocialweb/services/*.{a,la}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la \
+	$RPM_BUILD_ROOT%{_libdir}/libsocialweb/services/*.la
+
+%if %{with static_libs}
+	%{__rm} $RPM_BUILD_ROOT%{_libdir}/libsocialweb/services/*.a
+%endif
 
 %find_lang %{name}
 
