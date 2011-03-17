@@ -6,7 +6,7 @@
 Summary:	A social network data aggregator
 Name:		libsocialweb
 Version:	0.25.12
-Release:	1
+Release:	2
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.bz2
@@ -90,6 +90,7 @@ Dokumentacja API biblioteki socialweb.
 	--disable-silent-rules \
 	%{__enable_disable apidocs gtk-doc} \
 	%{__enable_disable static_libs static} \
+	--enable-all-services \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -100,6 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libsocialweb/services/*.{a,la}
 
 %find_lang %{name}
 
@@ -121,8 +123,21 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libsocialweb-keystore.so.0
 %attr(755,root,root) %{_libdir}/libsocialweb.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libsocialweb.so.0
+%dir %{_libdir}/libsocialweb
+%dir %{_libdir}/libsocialweb/services
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libfacebook.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libflickr.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/liblastfm.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libphotobucket.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libplurk.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libsina.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libsmugmug.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libtwitter.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libvimeo.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libyoutube.so
 %{_libdir}/girepository-1.0/SocialWebClient-0.25.typelib
 %{_datadir}/dbus-1/services/libsocialweb.service
+%{_datadir}/libsocialweb
 
 %files devel
 %defattr(644,root,root,755)
