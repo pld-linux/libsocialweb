@@ -5,12 +5,12 @@
 #
 Summary:	A social network data aggregator
 Name:		libsocialweb
-Version:	0.25.12
-Release:	2
+Version:	0.25.13
+Release:	1
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.bz2
-# Source0-md5:	7d5bd6c3b3ba13c1c620b6954ef26083
+# Source0-md5:	4bd32d02e2239154f35b09ba747c0200
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.63
