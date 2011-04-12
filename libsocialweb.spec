@@ -6,7 +6,7 @@
 Summary:	A social network data aggregator
 Name:		libsocialweb
 Version:	0.25.15
-Release:	1
+Release:	2
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.bz2
@@ -27,6 +27,7 @@ BuildRequires:	libsoup-gnome-devel >= 2.26.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig
 BuildRequires:	rest-devel >= 0.7.1
+BuildRequires:	vala >= 1:0.12
 Requires:	rest >= 0.7.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -91,6 +92,7 @@ Dokumentacja API biblioteki socialweb.
 	%{__enable_disable apidocs gtk-doc} \
 	%{__enable_disable static_libs static} \
 	--enable-all-services \
+	--enable-vala-bindings \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -150,11 +152,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libsocialweb-keystore.so
 %attr(755,root,root) %{_libdir}/libsocialweb.so
 %{_datadir}/gir-1.0/SocialWebClient-0.25.gir
+%{_datadir}/vala/vapi/libsocialweb-client.deps
+%{_datadir}/vala/vapi/libsocialweb-client.vapi
 %{_includedir}/libsocialweb
 %{_pkgconfigdir}/libsocialweb-client.pc
 %{_pkgconfigdir}/libsocialweb-keyfob.pc
 %{_pkgconfigdir}/libsocialweb-keystore.pc
 %{_pkgconfigdir}/libsocialweb-module.pc
+
 
 %if %{with static_libs}
 %files static
