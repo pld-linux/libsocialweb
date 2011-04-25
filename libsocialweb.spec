@@ -5,12 +5,12 @@
 #
 Summary:	A social network data aggregator
 Name:		libsocialweb
-Version:	0.25.15
-Release:	2
+Version:	0.25.16
+Release:	1
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.bz2
-# Source0-md5:	d459d657b3ff0e91c7b5437a74696e5d
+# Source0-md5:	38163cb8f73c9d07e7cda734ba5f591a
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.63
@@ -26,9 +26,9 @@ BuildRequires:	libgnome-keyring-devel
 BuildRequires:	libsoup-gnome-devel >= 2.26.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig
-BuildRequires:	rest-devel >= 0.7.1
+BuildRequires:	rest-devel >= 0.7.10
 BuildRequires:	vala >= 1:0.12
-Requires:	rest >= 0.7.1
+Requires:	rest >= 0.7.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,7 +46,7 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel
 Requires:	glib2-devel >= 1:2.16.0
 Requires:	libsoup-devel >= 2.26.0
-Requires:	rest-devel >= 0.7.1
+Requires:	rest-devel >= 0.7.10
 
 %description devel
 Header files for socialweb library.
@@ -134,6 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libsocialweb/services/libfacebook.so
 %attr(755,root,root) %{_libdir}/libsocialweb/services/libflickr.so
 %attr(755,root,root) %{_libdir}/libsocialweb/services/liblastfm.so
+%attr(755,root,root) %{_libdir}/libsocialweb/services/libmyspace.so
 %attr(755,root,root) %{_libdir}/libsocialweb/services/libphotobucket.so
 %attr(755,root,root) %{_libdir}/libsocialweb/services/libplurk.so
 %attr(755,root,root) %{_libdir}/libsocialweb/services/libsina.so
