@@ -2,11 +2,12 @@
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
 %bcond_without	static_libs	# don't build static libraries
+%bcond_without	vala		# do not build Vala API
 #
 Summary:	A social network data aggregator
 Name:		libsocialweb
 Version:	0.25.20
-Release:	1
+Release:	2
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.xz
@@ -28,7 +29,7 @@ BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	pkgconfig
 BuildRequires:	rest-devel >= 0.7.10
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	vala >= 1:0.12
+%{?with_vala:BuildRequires:	vala >= 1:0.12}
 BuildRequires:	xz
 Requires:	rest >= 0.7.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -80,6 +81,18 @@ API documentation for socialweb library.
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki socialweb.
 
+%package -n vala-libsocialweb
+Summary:	libsocialweb API for Vala language
+Summary(pl.UTF-8):	API libsocialweb dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description -n vala-libsocialweb
+libsocialweb API for Vala language.
+
+%description -n vala-libsocialweb -l pl.UTF-8
+API libsocialweb dla języka Vala.
+
 %prep
 %setup -q
 
@@ -94,7 +107,7 @@ Dokumentacja API biblioteki socialweb.
 	%{__enable_disable apidocs gtk-doc} \
 	%{__enable_disable static_libs static} \
 	--enable-all-services \
-	--enable-vala-bindings \
+	%{__enable_disable vala vala-bindings} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -155,8 +168,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libsocialweb-keystore.so
 %attr(755,root,root) %{_libdir}/libsocialweb.so
 %{_datadir}/gir-1.0/SocialWebClient-0.25.gir
-%{_datadir}/vala/vapi/libsocialweb-client.deps
-%{_datadir}/vala/vapi/libsocialweb-client.vapi
 %{_includedir}/libsocialweb
 %{_pkgconfigdir}/libsocialweb-client.pc
 %{_pkgconfigdir}/libsocialweb-keyfob.pc
@@ -179,4 +190,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_gtkdocdir}/libsocialweb-client
 %{_gtkdocdir}/libsocialweb-dbus
 %{_gtkdocdir}/libsocialweb
+%endif
+
+%if %{with vala}
+%files -n vala-libsocialweb
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/libsocialweb-client.deps
+%{_datadir}/vala/vapi/libsocialweb-client.vapi
 %endif
