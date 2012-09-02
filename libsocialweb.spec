@@ -5,6 +5,7 @@
 %bcond_without	vala		# do not build Vala API
 #
 Summary:	A social network data aggregator
+Summary(pl.UTF-8):	Agregator danych z sieci społecznościowych
 Name:		libsocialweb
 Version:	0.25.20
 Release:	2
@@ -40,6 +41,14 @@ libsocialweb is a social data server which fetches data from the
 events, recently played tracks, and pending eBay auctions. It also
 provides a service to update your status on web services which support
 it, such as MySpace and Twitter.
+
+%description -l pl.UTF-8
+libsocialweb to serwer danych społecznościowych, pobierający dane z
+"serwisów społecznościowych", takie jak posty i zdjęcia z blogów
+znajomych, zbliżające się wydarzenia, ostatnio odtwarzane utwory,
+zbliżające się aukcje na eBayu. Udostępnia także usługę uaktualniającą
+stan użytkownika na serwisach WWW, które to obsługują - np. MySpace
+czy Twitter.
 
 %package devel
 Summary:	Header files for socialweb library
@@ -173,7 +182,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libsocialweb-keyfob.pc
 %{_pkgconfigdir}/libsocialweb-keystore.pc
 %{_pkgconfigdir}/libsocialweb-module.pc
-
 
 %if %{with static_libs}
 %files static
