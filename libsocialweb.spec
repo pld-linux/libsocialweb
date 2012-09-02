@@ -14,7 +14,7 @@ Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.xz
 # Source0-md5:	10332cd8674c39402e0834064e2b5437
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel
+BuildRequires:	GConf2-devel >= 2.0
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-glib-devel
@@ -32,6 +32,8 @@ BuildRequires:	rest-devel >= 0.7.10
 BuildRequires:	tar >= 1:1.22
 %{?with_vala:BuildRequires:	vala >= 1:0.12}
 BuildRequires:	xz
+Requires:	glib2 >= 1:2.16.0
+Requires:	libsoup-gnome >= 2.26.0
 Requires:	rest >= 0.7.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -95,6 +97,7 @@ Summary:	libsocialweb API for Vala language
 Summary(pl.UTF-8):	API libsocialweb dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala >= 1:0.12
 
 %description -n vala-libsocialweb
 libsocialweb API for Vala language.
