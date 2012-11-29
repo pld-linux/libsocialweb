@@ -7,12 +7,13 @@
 Summary:	A social network data aggregator
 Summary(pl.UTF-8):	Agregator danych z sieci społecznościowych
 Name:		libsocialweb
-Version:	0.25.20
-Release:	2
+Version:	0.25.21
+Release:	1
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.xz
-# Source0-md5:	10332cd8674c39402e0834064e2b5437
+# Source0-md5:	4a31221a7855f40b6e263519ee84c6b3
+Patch0:		%{name}-gir.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.0
 BuildRequires:	autoconf >= 2.63
@@ -107,6 +108,7 @@ API libsocialweb dla języka Vala.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -146,7 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS README TODO
 %attr(755,root,root) %{_libexecdir}/libsocialweb-core
 %attr(755,root,root) %{_libdir}/libsocialweb-client.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libsocialweb-client.so.2
