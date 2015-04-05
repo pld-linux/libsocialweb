@@ -1,0 +1,11 @@
+--- libsocialweb-0.25.21/libsocialweb-client/sw-client-service.c~	2012-10-15 11:11:53.000000000 +0000
++++ libsocialweb-0.25.21/libsocialweb-client/sw-client-service.c	2015-04-05 18:24:08.633623731 +0000
+@@ -595,7 +595,7 @@
+                                          closure->userdata,
+                                          SW_CLIENT_SERVICE_ERROR,
+                                          0,
+-                                         error_message);
++                                         "%s", error_message);
+     g_object_unref (closure->service);
+     g_slice_free (SwClientServiceCallClosure, closure);
+     return;
