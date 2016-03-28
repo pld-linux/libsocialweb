@@ -3,12 +3,12 @@
 %bcond_without	apidocs		# do not build and package API docs
 %bcond_without	static_libs	# don't build static libraries
 %bcond_without	vala		# do not build Vala API
-#
+
 Summary:	A social network data aggregator
 Summary(pl.UTF-8):	Agregator danych z sieci społecznościowych
 Name:		libsocialweb
 Version:	0.25.21
-Release:	2
+Release:	3
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.xz
@@ -100,6 +100,9 @@ Summary(pl.UTF-8):	API libsocialweb dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 1:0.12
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n vala-libsocialweb
 libsocialweb API for Vala language.
