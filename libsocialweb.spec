@@ -8,7 +8,7 @@ Summary:	A social network data aggregator
 Summary(pl.UTF-8):	Agregator danych z sieci społecznościowych
 Name:		libsocialweb
 Version:	0.25.21
-Release:	3
+Release:	4
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.xz
@@ -87,6 +87,9 @@ Summary:	socialweb library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki socialweb
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for socialweb library.
