@@ -87,9 +87,7 @@ Summary:	socialweb library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki socialweb
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for socialweb library.
@@ -103,9 +101,7 @@ Summary(pl.UTF-8):	API libsocialweb dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 1:0.12
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-libsocialweb
 libsocialweb API for Vala language.
