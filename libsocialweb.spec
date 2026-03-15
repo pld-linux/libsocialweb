@@ -8,7 +8,7 @@ Summary:	A social network data aggregator
 Summary(pl.UTF-8):	Agregator danych z sieci społecznościowych
 Name:		libsocialweb
 Version:	0.25.21
-Release:	4
+Release:	5
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsocialweb/0.25/%{name}-%{version}.tar.xz
